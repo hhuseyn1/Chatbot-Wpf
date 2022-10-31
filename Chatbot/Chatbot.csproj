@@ -9,14 +9,18 @@
 
   <ItemGroup>
     <None Remove="Emoji.png" />
+    <None Remove="Phone.png" />
     <None Remove="Send.png" />
     <None Remove="Sendicon.png" />
+    <None Remove="VideoCall.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Emoji.png" />
-    <Resource Include="Send.png" />
-    <Resource Include="Sendicon.png" />
+    <Resource Include="Images\Emoji.png" />
+    <Resource Include="Images\Send.png" />
+    <Resource Include="Images\Sendicon.png" />
+    <Resource Include="Images\Phone.png" />
+    <Resource Include="Images\VideoCall.png" />
   </ItemGroup>
 
 </Project>

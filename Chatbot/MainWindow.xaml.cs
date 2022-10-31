@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Chatbot.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,12 +22,12 @@ namespace Chatbot
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> Messages { get; set; }
+        public List<Message> Messages { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
-            Messages = new List<string>();
+            Messages = new List<Message>();
         }
 
         private void İmage_Click(object sender, MouseButtonEventArgs e)
@@ -40,11 +42,29 @@ namespace Chatbot
                 if (!string.IsNullOrEmpty(txtbox_Message.Text) && !string.IsNullOrWhiteSpace(txtbox_Message.Text))
                 {
                     list_Messages.ItemsSource = null;
-                    Messages.Add(txtbox_Message.Text.ToString());
+                    Messages.Add(new Message() {
+                        Sender="Me",
+                        MessageText=txtbox_Message.Text,
+                        SendedTime=DateTime.Now
+                    });
+                    
+                    Thread.Sleep(1000);
+                    Messages.Add(new Message()
+                    {
+                        Sender = "DomToretto",
+                        MessageText = txtbox_Message.Text,
+                        SendedTime = DateTime.Now
+                    });
+                    
+                    txtbox_Message.Text=string.Empty;
                     list_Messages.ItemsSource = null;
                     list_Messages.ItemsSource = Messages;
                 }
             }
+        }
+        private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Sender is DomToretto Family is Everyhting", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
