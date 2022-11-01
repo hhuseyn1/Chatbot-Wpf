@@ -12,7 +12,7 @@
             <RowDefinition Height="11*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <ListView Grid.Row="1" Name="list_Messages" ItemsSource="{Binding Messages}"  Background="Bisque">
+        <ListView  Grid.Row="1" Name="list_Messages" ItemsSource="{Binding Messages}"  Background="Bisque" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="3">
@@ -27,6 +27,7 @@
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
+           
         </ListView>
         <Grid Grid.Row="2" >
             <Grid.ColumnDefinitions>
